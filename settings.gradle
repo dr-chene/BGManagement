@@ -1,0 +1,6 @@
+include ':module_demo'
+include ':module_main'
+include ':lib_net'
+include ':lib_base'
+include ':module_app'
+rootProject.name = "BGManagement"
