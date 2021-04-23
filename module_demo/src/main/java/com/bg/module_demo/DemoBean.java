@@ -11,5 +11,18 @@ import androidx.room.PrimaryKey;
 public class DemoBean {
     public String name;
     @PrimaryKey
-    private int num;
+    public long num;
+
+    public DemoBean(String name, long num) {
+        this.name = name;
+        this.num = num;
+    }
+
+    @Override
+    public String toString() {
+        return "DemoBean{" +
+                "name='" + name + '\'' +
+                ", num=" + num +
+                '}';
+    }
 }

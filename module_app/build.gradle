@@ -52,4 +52,5 @@ dependencies {
     implementation project(path: ':module_demo')
 //    annotationProcessor "com.alibaba:arouter-compiler:$arouter_version"
     kapt "com.alibaba:arouter-compiler:$arouter_version"
+    kapt "androidx.room:room-compiler:$room_version"
 }

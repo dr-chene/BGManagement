@@ -1,5 +1,6 @@
 package com.bg.module_main;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bg.lib_base.view.BaseActivity;
 import com.bg.module_main.databinding.ActivityMainBinding;
 

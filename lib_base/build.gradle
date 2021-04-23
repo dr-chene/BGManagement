@@ -58,5 +58,4 @@ dependencies {
     api "com.tencent:mmkv-static:$mmkv_version"
 
     api "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
 }
