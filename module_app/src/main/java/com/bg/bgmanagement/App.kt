@@ -15,7 +15,6 @@ import org.koin.core.logger.Level
 class App : BaseApp() {
     override fun onCreate() {
         super.onCreate()
-
         MMKV.initialize(this)
 
         startKoin {

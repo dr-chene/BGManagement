@@ -4,8 +4,9 @@ import org.koin.dsl.module
 
 /**
  * created by dr_chene on 2021/4/22
- * desc
+ * desc koin库
  */
+
 val appModule = module {
     single { AppDataBase.buildDataBase(get()) }
     single { get<AppDataBase>().demoDao }

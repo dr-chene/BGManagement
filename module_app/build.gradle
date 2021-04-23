@@ -1,10 +1,22 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
 
     defaultConfig {
         applicationId "com.bg.bgmanagement"
@@ -15,11 +27,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
-        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
     }
 
     buildTypes {
@@ -38,5 +50,6 @@ dependencies {
 
     implementation project(path: ':module_main')
     implementation project(path: ':module_demo')
-    annotationProcessor "com.alibaba:arouter-compiler:$arouter_version"
+//    annotationProcessor "com.alibaba:arouter-compiler:$arouter_version"
+    kapt "com.alibaba:arouter-compiler:$arouter_version"
 }
