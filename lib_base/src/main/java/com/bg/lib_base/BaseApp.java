@@ -11,4 +11,5 @@ import com.bg.lib_base.bean.User;
 public class BaseApp extends Application {
     public static User user = null;
     public static int userType = 3;
+    public static boolean isConnected = false;
 }

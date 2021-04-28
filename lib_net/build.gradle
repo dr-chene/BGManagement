@@ -36,6 +36,8 @@ android {
 
 dependencies {
 
+    api "io.reactivex.rxjava3:rxjava:$rxjava_version"
+
     api project(path: ':lib_base')
 
     annotationProcessor "com.alibaba:arouter-compiler:$arouter_version"

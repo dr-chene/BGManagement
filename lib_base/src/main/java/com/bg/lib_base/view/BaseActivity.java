@@ -1,9 +1,9 @@
 package com.bg.lib_base.view;
 
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
+import com.bg.lib_base.NetworkChangeReceiver;
+
 /**
  * j
  * created by dr_chene on 2021/4/22
@@ -21,6 +23,7 @@ import androidx.databinding.ViewDataBinding;
 public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatActivity implements IBaseView {
     protected final String TAG = this.getClass().getSimpleName();
     protected T binding;
+    private NetworkChangeReceiver networkChangeReceiver;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,9 +32,17 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
         makeStatusBarIconDark();
 
         binding = DataBindingUtil.setContentView(this, getContentViewResId());
+        networkChangeReceiver = new NetworkChangeReceiver();
+        registerReceiver(networkChangeReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         initView();
         initAction();
         subscribe();
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(networkChangeReceiver);
+        super.onDestroy();
     }
 
     //使状态栏透明

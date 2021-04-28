@@ -57,9 +57,12 @@ dependencies {
 
     api "com.squareup.retrofit2:retrofit:$retrofit_version"
     api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
 
     //SharedPreferences库
     api "com.tencent:mmkv-static:$mmkv_version"
 
     api "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    api "androidx.room:room-rxjava3:$room_version"
 }

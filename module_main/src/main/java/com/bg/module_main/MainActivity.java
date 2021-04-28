@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bg.lib_base.BaseApp;
+import com.bg.lib_base.bean.User;
 import com.bg.lib_base.view.BaseActivity;
 import com.bg.module_main.databinding.ActivityMainBinding;
 
@@ -33,7 +34,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         add("文章", R.drawable.ic_article);
         add("课程", R.drawable.ic_course);
         add("招新", R.drawable.ic_new);
-        add("管理", R.drawable.ic_management);
+        if (BaseApp.userType <= User.ADMIN) add("管理", R.drawable.ic_management);
         add("我的", R.drawable.ic_mine);
     }
 
